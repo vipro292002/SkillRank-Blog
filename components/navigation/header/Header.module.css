@@ -1,0 +1,8 @@
+.component {
+}
+.header_container{
+    @apply relative bg-white
+}
+.active_link{
+    @apply !text-primary-200
+}
