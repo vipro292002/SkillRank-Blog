@@ -1,22 +1,76 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TableContent from '../../../components/Post/TableContent'
 
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import { ChevronDownIcon, FilterIcon, MinusSmIcon, PlusSmIcon, ViewGridIcon, ChevronRightIcon, HomeIcon } from '@heroicons/react/solid'
-import { Link } from "react-scroll"
+import { Link as LinkScroll } from "react-scroll"
 import TextBlock from '../../../components/Post/TextBlock'
 import { NextPageWithLayout } from '../../page'
 import PrimaryLayout from '../../../components/layouts/primary/PrimaryLayout'
 import MetaHeader from '../../../components/meta'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { CodePen, CodeSandbox, YouTube  } from 'mdx-embed';
+import { NextSeo } from 'next-seo';
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
+import { allResources, allSkills } from 'contentlayer/generated'
 
-type Props = {}
+import { ResourceArticle } from '@/components/display/post/ResourceArticle'
+import { useMDXComponent } from 'next-contentlayer/hooks';
+import CodeBlock from '../../../components/Post/CodeBlock'
 
-const DetailPost: NextPageWithLayout = (props: Props) => {
+type DetailPostProps = {
+    post: any
+}
+
+const mdxComponents = {
+    CodePen,
+    CodeSandbox,
+    YouTube,
+    CodeBlock
+  };
+
+const DetailPost: NextPageWithLayout = ({ post }: any) => {
     const pages = [
         { name: 'Projects', href: '#', current: false },
         { name: 'Project Nero', href: '#', current: true },
     ]
+    const router = useRouter();
+    console.log("router", router.pathname.split("/"));
+    const arr = router.pathname.split("/")
+    const breadcrumb = []
+    for (let i = 1; i < arr.length; i++) {
+        const element = arr[i];
+        breadcrumb.push(element)
+    }
+    console.log("breadcrumb", breadcrumb);
+
+    const posts = {
+        title: 'Boost your conversion rate',
+        href: '#',
+        category: { name: 'Article', href: '#' },
+        description:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.',
+        date: 'Mar 16, 2020',
+        datetime: '2020-03-16',
+        imageUrl:
+            'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+        readingTime: '6 min',
+        author: {
+            name: 'Roel Aufderehar',
+            href: '#',
+            imageUrl:
+                'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+        tags: [
+            { id: 1, name: "React" },
+            { id: 2, name: "SQL" },
+            { id: 3, name: "NextJS" },
+        ],
+        view: 1022,
+        like: 5666
+    }
 
     const data = `<p>
   2222Faucibus commodo massa rhoncus, volutpat. <strong>Dignissim</strong> sed <strong>eget risus enim</strong>.
@@ -35,18 +89,22 @@ const DetailPost: NextPageWithLayout = (props: Props) => {
   purus, diam commodo tincidunt turpis. Amet, duis sed elit interdum dignissim.
 </p>`
 
+const MDXContent = useMDXComponent(post.body.code);
+
     return (
         <div>
-            <MetaHeader title={"Post"} />
+            {/* <MetaHeader title={"Post"} /> */}
 
             <nav className="flex max-w-screen-lg mx-auto px-4" aria-label="Breadcrumb">
                 <ol role="list" className="flex items-center space-x-4">
                     <li>
                         <div>
-                            <a href="#" className="text-gray-400 hover:text-gray-500">
-                                <HomeIcon className="flex-shrink-0 h-5 w-5" aria-hidden="true" />
-                                <span className="sr-only">Home</span>
-                            </a>
+                            <Link href='/' >
+                                <span className="text-gray-400 hover:text-gray-500">
+                                    <HomeIcon className="flex-shrink-0 h-5 w-5" aria-hidden="true" />
+                                    <span className="sr-only">Home</span>
+                                </span>
+                            </Link>
                         </div>
                     </li>
                     {pages.map((page) => (
@@ -67,7 +125,7 @@ const DetailPost: NextPageWithLayout = (props: Props) => {
             </nav>
             {/* <TableContent /> */}
 
-            <div className="relative py-16 bg-white overflow-hidden">
+            {/* <div className="relative py-16 bg-white overflow-hidden">
                 <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
                     <div className="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
                         <svg
@@ -135,17 +193,41 @@ const DetailPost: NextPageWithLayout = (props: Props) => {
                         </svg>
                     </div>
                 </div>
-                <div className="relative  sm:px-6 lg:px-8 flex max-w-screen-lg mx-auto gap-4 ">
-                    <div className="basic-3/4  ">
-                        <div className="text-lg   mx-12">
+                <div className="relative    sm:px-6 lg:px-8 flex  max-w-screen-lg mx-auto gap-4 ">
+                    <div className="basic-4/4  md:basic-3/4 ">
+                        <div className="text-lg  ">
                             <h1>
-                                <span className="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">
-                                    Introducing
-                                </span>
-                                <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                                <span className="mt-2 block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                                     JavaScript for Beginners
                                 </span>
                             </h1>
+                            <div className="mt-6 flex items-center">
+                                <div className="flex-shrink-0">
+                                    <Link href={posts.author.href} >
+                                        <div>
+                                            <span className="sr-only">{posts.author.name}</span>
+                                            <img className="h-10 w-10 rounded-full" src={posts.author.imageUrl} alt="" />
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div className="ml-3">
+                                    <Link href={posts.author.href} >
+                                        <div className="hover:underline text-sm font-medium text-gray-900 hover:text-primary-100">
+                                            {posts.author.name}
+                                        </div>
+                                    </Link>
+                                    <div className="flex space-x-1 text-sm text-gray-500">
+                                        <time dateTime={posts.datetime}>{posts.date}</time>
+                                        <span aria-hidden="true">&middot;</span>
+                                        <span>{posts.readingTime} read</span>
+                                        <span aria-hidden="true">&middot;</span>
+                                        <span>{posts.view} views</span>
+                                        <span aria-hidden="true">&middot;</span>
+                                        <span>{posts.like} likes</span>
+                                    </div>
+                                </div>
+
+                            </div>
                             <p className="mt-8 text-xl text-gray-500 leading-8">
                                 Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam eget
                                 aliquam. Quisque id at vitae feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget. Eleifend
@@ -195,12 +277,19 @@ const DetailPost: NextPageWithLayout = (props: Props) => {
                         </div>
                     </div>
 
-                    <div className={`basic-1/4 w-full`}>
+                    <div className={`basic-0 hidden  lg:block  md:basic-1/4  w-full`}>
                         <TableContent />
                     </div>
 
                 </div>
-            </div>
+      
+            </div> */}
+
+            <NextSeo title={post.title} description={post.seoDescription}  />
+
+            <ResourceArticle title={post.title} category={post.category} heading={post.headings}>
+                <MDXContent components={mdxComponents} />
+            </ResourceArticle>
 
         </div>
     )
@@ -212,3 +301,25 @@ export default DetailPost
 DetailPost.getLayout = (page) => {
     return <PrimaryLayout>{page}</PrimaryLayout>;
 };
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    return {
+        paths: allResources.map((resource) => ({
+            params: { slug: resource.slug },
+        })),
+        fallback: false,
+    };
+};
+// server
+export const getStaticProps: GetStaticProps<any> = async (context: GetStaticPropsContext) => {
+    console.log("context", context);
+    
+    const post = allResources.find(
+        (resource) => resource.slug === context.params?.slug
+    );
+    // console.log("post", post);
+    console.log("allSkills", allSkills);
+
+    return { props: { post } };
+};
+

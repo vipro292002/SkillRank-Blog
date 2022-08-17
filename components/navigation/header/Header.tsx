@@ -156,34 +156,6 @@ const Header: React.FC<IHeader> = ({ className, ...headerProps }) => {
   }
 
   return (
-    // <header
-    //   {...headerProps}
-    //   className={`w-full flex flex-row justify-between ${className}`}
-    // >
-    //   <div className="space-x-5 m-5">
-    //     <Link href="/">
-    //       <a className="hover:underline">Home</a>
-    //     </Link>
-    //     <Link href="/">
-    //       <a className="hover:underline">Store</a>
-    //     </Link>
-
-    //   </div>
-    //   <div className="space-x-5 m-5">
-    //     <Link href="/">
-    //       <a className="hover:underline hidden sm:inline">Gmail</a>
-    //     </Link>
-    //     <Link href="/">
-    //       <a className="hover:underline hidden sm:inline">Images</a>
-    //     </Link>
-    //     <AuthButton />
-    //   </div>
-    // </header>
-
-
-
-
-
     <header {...headerProps}>
       <Popover className={styles.header_container}>
         <div className="flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
@@ -417,7 +389,7 @@ const Header: React.FC<IHeader> = ({ className, ...headerProps }) => {
                     />
                   </div>
                   <div className="-mr-2">
-                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-100">
                       <span className="sr-only">Close menu</span>
                       <XIcon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
@@ -431,7 +403,7 @@ const Header: React.FC<IHeader> = ({ className, ...headerProps }) => {
                         href={item.href}
                         className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
                       >
-                        <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                        <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-primary-100 text-white">
                           <item.icon className="h-6 w-6" aria-hidden="true" />
                         </div>
                         <div className="ml-4 text-base font-medium text-gray-900">{item.name}</div>
@@ -464,15 +436,16 @@ const Header: React.FC<IHeader> = ({ className, ...headerProps }) => {
                   ))}
                 </div>
                 <div className="mt-6">
+                  
                   <a
                     href="#"
-                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary-100 hover:bg-primary-200"
                   >
                     Sign up
                   </a>
                   <p className="mt-6 text-center text-base font-medium text-gray-500">
                     Existing customer?{' '}
-                    <a href="#" className="text-indigo-600 hover:text-indigo-500">
+                    <a href="#" className="text-primary-100 hover:text-primary-200">
                       Sign in
                     </a>
                   </p>

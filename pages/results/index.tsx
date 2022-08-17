@@ -1,9 +1,11 @@
 import { GetServerSideProps } from 'next';
 import PrimaryLayout from '../../components/layouts/primary/PrimaryLayout';
+import TableContent from '../../components/Post/TableContent';
 import SearchResult from '../../components/utility/search-result/SearchResult';
 import { ISearchData } from '../../lib/search/types';
 import { IApiSearchResponseData } from '../api/search';
 import { NextPageWithLayout } from '../page';
+
 
 export interface IResults {
   searchResults: ISearchData[];

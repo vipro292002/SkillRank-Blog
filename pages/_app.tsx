@@ -5,6 +5,7 @@ import { NextPageWithLayout } from './page';
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 import Router from "next/router";
+import "@code-hike/mdx/dist/index.css"
 
 
 NProgress.configure({

@@ -6,9 +6,11 @@ import { ChevronDownIcon, FilterIcon, MinusSmIcon, PlusSmIcon, ViewGridIcon } fr
 import { Link } from "react-scroll"
 
 
-type Props = {}
+type TableContentProps = {
+  heading: any
+}
 
-const TableContent = (props: Props) => {
+const TableContent = ({ heading }: TableContentProps) => {
 
 
 
@@ -18,9 +20,10 @@ const TableContent = (props: Props) => {
     if (window !== undefined) {
       let windowHeight = window.scrollY;
       // window height changed for the demo
-      windowHeight > 100 ? setStickyClass('fixed') : setStickyClass('');
+      windowHeight > 100 ? setStickyClass('fixed !w-64') : setStickyClass('');
     }
   };
+  console.log("heading table content", heading);
 
 
 
@@ -30,9 +33,29 @@ const TableContent = (props: Props) => {
   }, [])
 
   return (
-    <div className={` sticky top-6 !col-start-4 row-span-6 mt-1.5 hidden xl:block`}>
+    <div className={`${stickyClass}   top-6 !col-start-4 row-span-6 mt-1.5 hidden lg:block overflow-hidden `}>
       <h1>TABLE OF CONTENTS</h1>
-      <Link to="test1" spy={true} smooth={true} offset={50} duration={500}>Test</Link>
+      <div className="space-y-2">
+        {/* <Link to="test1" spy={true} smooth={true} offset={50} duration={500}>
+          <span className={"mt-4 block text-black underline-offset-2 transition-all hover:text-primary-100 hover:underline hover:decoration-primary-100"}>
+            Test
+          </span>
+        </Link> */}
+
+        {heading.map((item: any, index: any) => {
+          return <a href={`#${item.slug}`} className={`${item.heading === 2 ? "pl-2" : "pl-4"}  mt-4 block font-sm text-black underline-offset-2 transition-all hover:text-primary-100 hover:underline hover:decoration-primary-100`}>
+             {item.text}
+          </a>
+
+          // <Link to={`${item.slug}`} spy={true} smooth={true} offset={0} duration={500}>
+          //   <span className={`${item.heading === 2?"pl-2" :"pl-4"}  mt-4 block font-sm text-black underline-offset-2 transition-all hover:text-primary-100 hover:underline hover:decoration-primary-100`}>
+          //     {item.text}
+          //   </span>
+          // </Link>
+        })}
+
+      </div>
+
     </div>
   )
 }

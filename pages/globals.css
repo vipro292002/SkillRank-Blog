@@ -7,6 +7,9 @@
     @apply border-0 p-2 px-6 bg-slate-100 rounded-md;
   }
 }
+*{
+  scroll-behavior: smooth; /*a tag anchor click to scroll*/
+}
 
 #nprogress .bar {
   background: #00BA34 !important;
@@ -16,3 +19,34 @@
 #nprogress .peg {
   box-shadow: 0 0 10px #00BA34, 0 0 5px #00BA34 !important;
 }
+
+
+/* Nprogress Bar Styles */
+
+.codeline-number{
+  display: inline-block;
+  width: 2em;
+  user-select: none;
+  opacity: 0.3;
+}
+
+.codeblock{
+  text-align: left;
+  margin: 1em 0;
+  padding: 0.5em;
+
+  
+}
+.token-line {
+  /* line-height: 1.3em;
+  height: 1.3em;
+  font-family: sans-serif; */
+  @apply text-base font-serif	
+}
+
+/* CodeBlock Styles */
+
+.anchor{
+  @apply no-underline text-black font-bold
+}
+

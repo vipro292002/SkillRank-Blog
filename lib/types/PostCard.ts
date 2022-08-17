@@ -1,18 +1,23 @@
 export interface IPostCard {
 
     title: string,
-    href: string,
-    category: { name: string, href: string  },
+    slug: string,
+    category: { id: number, slug: string, name: string  },
     description: string,
-    date: string,
-    datetime: string,
-    imageUrl: string,
-    readingTime: string,
-    author: {
-        name: string,
-        href: string,
-        imageUrl: string,
+    publishedAt: string,
+    image: string,
+    readingTime: {
+        text: string,
+        minutes: number,
+        time: number,
+        words: number
     },
-    tags: { id: number, name: string }[]
+    author: {
+        id: number,
+        slug: string,
+        name: string,
+        image: string,
+    },
+    tags: { id: number, slug: string, name: string }[]
 
 }

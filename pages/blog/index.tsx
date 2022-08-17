@@ -8,11 +8,18 @@ import { ICategory } from '../../lib/types/Category'
 import PostCart from '../../components/cards/post/PostCard'
 import MetaHeader from '../../components/meta'
 
+import { allResources } from "contentlayer/generated"
+import { pick } from '../../utils/pick'
 
-type Props = {}
 
-const BlogPage: NextPageWithLayout = (props: Props) => {
 
+type Props = {
+ resources: any
+}
+
+const BlogPage: NextPageWithLayout = ({ resources }: any) => {
+    console.log("resources",resources);
+    
     const categories = [
         { id: 1, name: "ReactJS" },
         { id: 2, name: "NextJS" },
@@ -169,7 +176,7 @@ const BlogPage: NextPageWithLayout = (props: Props) => {
                                 </div>
                             </div>
                             <div className="mt-12 max-w-lg mx-auto grid gap-5 md:grid-cols-2 md:max-w-none lg:grid-cols-3 lg:max-w-none">
-                                {posts.map((post, index) => (
+                                {resources.map((post: any, index: any) => (
                                     <PostCart key={index + 1} {...post} />
                                 ))}
                             </div>
@@ -195,3 +202,27 @@ export default BlogPage
 BlogPage.getLayout = (page) => {
     return <PrimaryLayout>{page}</PrimaryLayout>;
 };
+
+export function getStaticProps() {
+    
+    const resources: any = allResources
+      .map((resource: any) =>
+        pick(resource, [
+          'slug',
+          'title',
+          'description',
+          'publishedAt',
+          'readingTime',
+          'author',
+          'category',
+          'image',
+          "tags"
+        ])
+      )
+      .sort(
+        (a: any, b: any) =>
+          Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+      );
+  
+    return { props: { resources } };
+  }
