@@ -1,7 +1,7 @@
 export interface IPostCard {
 
     title: string,
-    slug: string,
+    slug?: string,
     category: { id: number, slug: string, name: string  },
     description: string,
     publishedAt: string,

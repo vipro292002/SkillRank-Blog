@@ -3,27 +3,24 @@ import { IPostCard } from "../../../lib/types/PostCard";
 
 const base: IPostCard = {
 
-    title: 'Boost your conversion rate',
-    href: '#',
-    category: { name: 'Article', href: '#' },
-    description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.',
-    date: 'Mar 16, 2020',
-    datetime: '2020-03-16',
-    imageUrl:
-        'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-    readingTime: '6 min',
-    author: {
-        name: 'Roel Aufderehar',
-        href: '#',
-        imageUrl:
-            'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
+    title: "Aurum perdideris incidit arbor et in pridem",
+    publishedAt: '2022-03-12',
+    description: "Sunt et ut cur Eryx etiamnunc. Duo ore crinita petis vulneribus opus Ophionides est umbra nobilis radicibus ferrugine virentem nec. .",
+    category: {id:1, slug: "react-js",name: 'ReactJS'},
+    author: {id:1, name: 'Hunter Becton', slug:"hunter-becton", image: 'https://images.unsplash.com/photo-1628329336337-8c33a8f08ec1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80' },
     tags: [
-        { id: 1, name: "React" },
-        { id: 2, name: "SQL" },
-        { id: 3, name: "NextJS" },
-    ]
+        { id: 1, slug:" react-js", name: "React" },
+        { id: 2, slug: "sql", name: "SQL" },
+        { id: 3, slug: "next-js", name: "NextJS" },
+    ],
+    readingTime:{
+        text: "6 min",
+        minutes: 3,
+        time: 4,
+        words: 16
+    },
+    image: 'https://images.unsplash.com/photo-1628329336337-8c33a8f08ec1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
+    
 }
 
 export const mockPostCardProps = {
