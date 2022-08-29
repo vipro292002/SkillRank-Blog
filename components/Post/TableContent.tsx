@@ -40,7 +40,7 @@ const TableContent = ({ heading }: TableContentProps) => {
         </Link> */}
 
         {heading.map((item: any, index: any) => {
-          return <a href={`#${item.slug}`} className={`${item.heading === 2 ? "pl-2" : "pl-4"}  mt-4 block text-sm text-black dark:text-white underline-offset-2 transition-all hover:!text-primary-100 hover:underline hover:decoration-primary-100`}>
+          return <a key={index + 1} href={`#${item.slug}`} className={`${item.heading === 2 ? "pl-2" : "pl-4"}  mt-4 block text-sm text-black dark:text-white underline-offset-2 transition-all hover:!text-primary-100 hover:underline hover:decoration-primary-100`}>
              {item.text}
           </a>
 

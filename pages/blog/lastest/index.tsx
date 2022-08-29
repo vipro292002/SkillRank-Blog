@@ -200,6 +200,7 @@ const LastestPostPage: NextPageWithLayout = ({ posts }: any) => {
                                 ))} */}
                                 {posts.map((post: any, index: any) => (
                                     <LazyLoad
+                                        key={index + 1}
                                         height={100}
                                         offset={[-100, 100]}
                                         placeholder={<span>Loading...</span> }

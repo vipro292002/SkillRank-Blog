@@ -20,9 +20,9 @@ return () => <App />;
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <div className={`codeblock ${className}`} style={style}>
             {tokens.map((line, i) => (
-              <div {...getLineProps({ line, key: i })}>
+              <div key={i} {...getLineProps({ line, key: i })}>
                 <span className="codeline-number">{i + 1}</span>
-                {line.map((token, key) => <span {...getTokenProps({ token, key })} />)}
+                {line.map((token, key) => <span key={key + 1} {...getTokenProps({ token, key })} />)}
               </div>
             ))}
           </div>
