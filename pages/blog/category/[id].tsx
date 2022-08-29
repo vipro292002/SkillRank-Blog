@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
-import { ArrowNarrowLeftIcon, ArrowNarrowRightIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import { NextPageWithLayout } from '../../page'
 import PrimaryLayout from '../../../components/layouts/primary/PrimaryLayout'
 import Link from 'next/link'
@@ -170,7 +170,7 @@ const CategoryPostPage: NextPageWithLayout = (props: Props) => {
                                     <Link href={`/blog/category/${item.id}`}>
                                         <a className='group float-right text-lg font-bold hover:text-primary-300 ' >
                                             Read More
-                                            <ArrowNarrowRightIcon className='hidden group-hover:inline ml-2 w-5 h-5 ' />
+                                            <ArrowRightIcon className='hidden group-hover:inline ml-2 w-5 h-5 ' />
                                         </a>
                                     </Link>
                                 </div>
