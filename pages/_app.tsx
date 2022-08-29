@@ -6,6 +6,7 @@ import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 import Router from "next/router";
 import "@code-hike/mdx/dist/index.css"
+import { ThemeProvider } from 'next-themes'
 
 
 NProgress.configure({
@@ -25,7 +26,10 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout || ((page) => page);
 
-  return <AuthProvider>{getLayout(<Component {...pageProps} />)}</AuthProvider>;
+  return <ThemeProvider attribute="class" disableTransitionOnChange>
+    <AuthProvider>{getLayout(<Component {...pageProps} />)}</AuthProvider>
+  </ThemeProvider>
+
 }
 
 export default MyApp;

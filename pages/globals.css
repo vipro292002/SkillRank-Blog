@@ -7,6 +7,12 @@
     @apply border-0 p-2 px-6 bg-slate-100 rounded-md;
   }
 }
+@layer base {
+  body {
+    @apply dark:bg-dark-100 dark:text-white bg-gray-50 text-gray-900
+  }
+}
+
 *{
   scroll-behavior: smooth; /*a tag anchor click to scroll*/
 }
@@ -47,6 +53,19 @@
 /* CodeBlock Styles */
 
 .anchor{
-  @apply no-underline text-black font-bold
+  @apply no-underline font-bold
 }
 
+
+
+/* ----progress scroll detail post */
+.progress-scroll {
+  position: fixed;
+  top: 88px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: #00BA34;
+  transform-origin: 0%;
+  z-index: 10;
+}

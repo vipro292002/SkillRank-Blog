@@ -1,6 +1,6 @@
 
 .header_container{
-    @apply relative bg-white
+    @apply  max-w-7xl mx-auto   relative z-10 rounded-sm
 }
 .active_link{
     @apply !text-primary-200

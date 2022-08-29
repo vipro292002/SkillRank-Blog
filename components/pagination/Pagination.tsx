@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowNarrowLeftIcon, ArrowNarrowRightIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
+import {  ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 
 type PaginationProps = {
@@ -66,7 +66,7 @@ const Pagination = ({ current, maximum, resolveLink, }: PaginationProps) => {
       <div className=" relative flex items-center justify-center gap-1 flex-wrap">
         {current > 1 && (
           <Link href={resolveLink(current - 1)}>
-            <a className="shadow-lg h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-white cursor-pointer hover:bg-primary-100 hover:text-white ">
+            <a className="shadow-lg h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-white dark:bg-dark-300 cursor-pointer hover:bg-primary-100 hover:text-white ">
               <ChevronLeftIcon className='h-6 w-6' />
             </a>
           </Link>
@@ -74,7 +74,7 @@ const Pagination = ({ current, maximum, resolveLink, }: PaginationProps) => {
         )}
 
 
-        <div className="shadow-lg flex h-12 font-medium rounded-full bg-white ">
+        <div className="shadow-lg flex h-12 font-medium rounded-full bg-white dark:bg-dark-300 ">
           {current < 5 ? (
             <>
               {new Array(maximum < 5 ? maximum : 5).fill("").map((_, index) => (
@@ -148,7 +148,7 @@ const Pagination = ({ current, maximum, resolveLink, }: PaginationProps) => {
 
         {current < maximum && (
           <Link href={resolveLink(current + 1)}>
-            <a className="shadow-lg h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-white cursor-pointer hover:bg-primary-100 hover:text-white ">
+            <a className="shadow-lg h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-white dark:bg-dark-300 cursor-pointer hover:bg-primary-100 hover:text-white ">
               <ChevronRightIcon className='h-6 w-6' />
             </a>
           </Link>

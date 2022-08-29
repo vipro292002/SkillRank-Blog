@@ -1,15 +1,15 @@
 import React from 'react'
 
 type TextBlockProps = {
-  data: any
+  children: React.ReactNode
 }
 
-const TextBlock = ({data}: TextBlockProps) => {
-  console.log("data",data);
+const TextBlock = ({children}: TextBlockProps) => {
+  console.log("data",children);
   
   return (
-    <div>
-      <div dangerouslySetInnerHTML={{ __html: data }} />
+    <div className='text-primary-100' >
+      {children}
     </div>
   )
 }

@@ -1,9 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import TextBlock from './TextBlock'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
-import { XIcon } from '@heroicons/react/outline'
-import { ChevronDownIcon, FilterIcon, MinusSmIcon, PlusSmIcon, ViewGridIcon } from '@heroicons/react/solid'
-import { Link } from "react-scroll"
 
 
 type TableContentProps = {
@@ -20,7 +17,7 @@ const TableContent = ({ heading }: TableContentProps) => {
     if (window !== undefined) {
       let windowHeight = window.scrollY;
       // window height changed for the demo
-      windowHeight > 100 ? setStickyClass('fixed !w-64') : setStickyClass('');
+      windowHeight > 100 ? setStickyClass('fixed pt-16 !w-[272px]') : setStickyClass('');
     }
   };
   console.log("heading table content", heading);
@@ -33,7 +30,7 @@ const TableContent = ({ heading }: TableContentProps) => {
   }, [])
 
   return (
-    <div className={`${stickyClass}   top-6 !col-start-4 row-span-6 mt-1.5 hidden lg:block overflow-hidden `}>
+    <div className={`${stickyClass} font-bold  top-6 !col-start-4 row-span-6 mt-1.5 hidden lg:block overflow-hidden `}>
       <h1>TABLE OF CONTENTS</h1>
       <div className="space-y-2">
         {/* <Link to="test1" spy={true} smooth={true} offset={50} duration={500}>
@@ -43,7 +40,7 @@ const TableContent = ({ heading }: TableContentProps) => {
         </Link> */}
 
         {heading.map((item: any, index: any) => {
-          return <a href={`#${item.slug}`} className={`${item.heading === 2 ? "pl-2" : "pl-4"}  mt-4 block font-sm text-black underline-offset-2 transition-all hover:text-primary-100 hover:underline hover:decoration-primary-100`}>
+          return <a href={`#${item.slug}`} className={`${item.heading === 2 ? "pl-2" : "pl-4"}  mt-4 block text-sm text-black dark:text-white underline-offset-2 transition-all hover:!text-primary-100 hover:underline hover:decoration-primary-100`}>
              {item.text}
           </a>
 

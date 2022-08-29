@@ -85,34 +85,6 @@ const Tag = defineNestedType(() => ({
     id: { type: 'number', required: true },
     slug: { type: 'string', required: true },
     name: { type: 'string', required: true }
-
-
-    //   tags:
-    // - name: My First Tag
-    // - name: Another Tag
-
-    // id: {
-    //   type: "enum",
-    //   required: true,
-    //   options: allId,
-    // },
-    // name: {
-    //   type: "enum",
-    //   required: true,
-    //   options: allTagNames,
-    // },
-    // slug: {
-    //   type: "enum",
-    //   required: true,
-    //   options: allTagSlugs,
-    // },
-
-    // tags: {
-    //   type: 'list',
-    //   of: { type: 'string' }
-
-
-    // }
   }
 }));
 
@@ -138,6 +110,61 @@ const Skill = defineDocumentType(() => ({
       type: 'list',
       of: Tag,
     },
+    orderIndex: {type: "number", required: true}
+  },
+  computedFields,
+}));
+
+const PowerBI = defineDocumentType(() => ({
+  name: 'PowerBI',
+  filePathPattern: 'power-bi/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    publishedAt: { type: 'string', required: true },
+    description: { type: 'string', required: true },
+    seoDescription: { type: 'string', required: true },
+    category: {
+      type: 'nested',
+      of: Category,
+    },
+    author: {
+      type: 'nested',
+      of: Author,
+    },
+    image: { type: 'string', required: true },
+    tags: {
+      type: 'list',
+      of: Tag,
+    },
+    orderIndex: {type: "number", required: true}
+  },
+  computedFields,
+}));
+
+const Sql = defineDocumentType(() => ({
+  name: 'SQL',
+  filePathPattern: 'sql/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    publishedAt: { type: 'string', required: true },
+    description: { type: 'string', required: true },
+    seoDescription: { type: 'string', required: true },
+    category: {
+      type: 'nested',
+      of: Category,
+    },
+    author: {
+      type: 'nested',
+      of: Author,
+    },
+    image: { type: 'string', required: true },
+    tags: {
+      type: 'list',
+      of: Tag,
+    },
+    orderIndex: {type: "number", required: true}
   },
   computedFields,
 }));
@@ -165,6 +192,7 @@ const Resource = defineDocumentType(() => ({
       type: 'list',
       of: Tag,
     },
+    orderIndex: {type: "number", required: true}
   },
   computedFields,
 }));
@@ -173,7 +201,7 @@ const Resource = defineDocumentType(() => ({
 
 const contentLayerConfig = makeSource({
   contentDirPath: 'content',
-  documentTypes: [Resource, Skill],
+  documentTypes: [Resource, Skill, Sql, PowerBI],
   mdx: {
     remarkPlugins: [remarkGfm, [remarkCodeHike, { theme }]],
     rehypePlugins: [
