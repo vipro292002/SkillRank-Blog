@@ -50,10 +50,33 @@
   @apply text-base font-serif	
 }
 
+.ch-codeblock, .ch-codegroup{
+  @apply !m-0
+}
+
+.ch-codeblock, .ch-codegroup, .ch-preview {
+  @apply !rounded-tr-none
+}
+
+.ch-editor-button{
+  @apply hover:!text-primary-100
+}
+
+.ch-frame-title-bar{
+  @apply dark:!bg-dark-300
+}
+
+.ch-editor-tab{
+  @apply hover:!text-primary-100
+}
+
+.ch-code-scroll-parent{
+  @apply dark:!bg-[#252526]
+}
 /* CodeBlock Styles */
 
 .anchor{
-  @apply no-underline font-bold
+  @apply !no-underline font-bold !text-primary-100
 }
 
 
@@ -61,10 +84,10 @@
 /* ----progress scroll detail post */
 .progress-scroll {
   position: fixed;
-  top: 88px;
+  top: 0;
   left: 0;
   right: 0;
-  height: 10px;
+  height: 3px;
   background: #00BA34;
   transform-origin: 0%;
   z-index: 10;

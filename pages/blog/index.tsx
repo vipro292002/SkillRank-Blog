@@ -52,7 +52,7 @@ const BlogPage: NextPageWithLayout = ({ resources }: any) => {
                                 </div >
                                 <div className='basic-1/4'>
                                     <Link href={`/blog/category/${item.id}`}>
-                                        <a className='group float-right text-lg font-bold hover:text-primary-300 ' >
+                                        <a className='group float-right text-lg font-bold hover:text-primary-200 ' >
                                             Read More
                                             <ArrowDownRightIcon className='hidden group-hover:inline ml-2 w-5 h-5 ' />
                                         </a>

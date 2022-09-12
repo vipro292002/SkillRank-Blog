@@ -21,8 +21,11 @@ module.exports = {
         primary:{
           100: "#00BA34",
           200: "#00e641",
-          300: "#00e641"
-
+          // 300: "#E6F9EB",     
+          300: "#E5FAF3",
+          // 400: "#12A23A",   
+          // 400: "#0D2726", 
+          400: "#116754"               
         },
         dark:{
           100: "#202023",
@@ -30,7 +33,7 @@ module.exports = {
           300: "#313134"
         },
         blue: {
-          500: '#1a73e8',
+          "link": '#0085FF',
         },
       },
       spacing: {
@@ -47,7 +50,7 @@ module.exports = {
             '--tw-prose-lead': theme('colors.pink[700]'),
             '--tw-prose-links': theme('colors.primary[100]'),
             '--tw-prose-bold': theme('colors.black'),
-            '--tw-prose-counters': theme('colors.pink[600]'),
+            '--tw-prose-counters': theme('colors.primary[100]'),
             '--tw-prose-bullets': theme('colors.primary[100]'),
             '--tw-prose-hr': theme('colors.pink[300]'),
             '--tw-prose-quotes': theme('colors.black'),

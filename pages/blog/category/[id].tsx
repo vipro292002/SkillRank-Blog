@@ -14,8 +14,8 @@ type Props = {}
 
 const CategoryPostPage: NextPageWithLayout = (props: Props) => {
     const categories = [
-        { id: 1, name: "ReactJS" ,slug:"reactjs"},
-        
+        { id: 1, name: "PowerBI" ,slug:"power-bi"},
+        { id: 2, name: "SQL" ,slug:"sql"},
 
     ]
 
@@ -168,7 +168,7 @@ const CategoryPostPage: NextPageWithLayout = (props: Props) => {
                                 </div >
                                 <div className='basic-1/4'>
                                     <Link href={`/blog/category/${item.id}`}>
-                                        <a className='group float-right text-lg font-bold hover:text-primary-300 ' >
+                                        <a className='group float-right text-lg font-bold hover:text-primary-200 ' >
                                             Read More
                                             <ArrowRightIcon className='hidden group-hover:inline ml-2 w-5 h-5 ' />
                                         </a>

@@ -203,7 +203,7 @@ const contentLayerConfig = makeSource({
   contentDirPath: 'content',
   documentTypes: [Resource, Skill, Sql, PowerBI],
   mdx: {
-    remarkPlugins: [remarkGfm, [remarkCodeHike, { theme }]],
+    remarkPlugins: [remarkGfm, [remarkCodeHike, { theme, lineNumbers: true, showCopyButton: true, }]],
     rehypePlugins: [
       rehypeSlug,
       rehypeCodeTitles,

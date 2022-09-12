@@ -20,7 +20,7 @@ const ChangeThemeButton = (props: Props) => {
 
         if (currentTheme === 'dark') {
             return (
-                <button className="bg-gray-200 dark:bg-gray-600 rounded-md transition ease-in-out delay-150 duration-500 hover:scale-110  p-2  focus:ring-primary-100"
+                <button className=" rounded-md transition ease-in-out delay-150 duration-500 hover:scale-110  p-2  focus:ring-primary-100"
                     onClick={() => setTheme('light')}
                 >
                     <SunIcon className="h-5 w-5" />
@@ -28,7 +28,7 @@ const ChangeThemeButton = (props: Props) => {
             )
         } else {
             return (
-                <button className="bg-gray-200 rounded-md transition ease-in-out delay-150 duration-500 hover:scale-110 p-2 focus:ring-primary-100"
+                <button className="rounded-md transition ease-in-out delay-150 duration-500 hover:scale-110 p-2 focus:ring-primary-100"
                     onClick={() => setTheme('dark')}
                 >
                     <MoonIcon className="h-5 w-5" />
