@@ -17,6 +17,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build-prisma": "prisma generate && prisma migrate deploy",
+    "prestart:dev": "npx prisma db push --accept-data-loss && npx prisma generate",
     "start:server": "nodemon --experimental-modules --es-module-specifier-resolution=node ./pages/api/app.js"
   },
   "dependencies": {
