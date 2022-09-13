@@ -16,7 +16,7 @@
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build-prisma": "cd pages/api prisma generate && prisma migrate deploy",
+    "build-prisma": "prisma generate && prisma migrate deploy",
     "start:server": "nodemon --experimental-modules --es-module-specifier-resolution=node ./pages/api/app.js"
   },
   "dependencies": {
