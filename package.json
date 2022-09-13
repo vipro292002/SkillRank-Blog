@@ -17,6 +17,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build-prisma": "cd pages/api prisma generate && prisma migrate deploy",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build",
     "start:server": "nodemon --experimental-modules --es-module-specifier-resolution=node ./pages/api/app.js"
   },
   "dependencies": {
